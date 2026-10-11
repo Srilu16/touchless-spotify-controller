@@ -65,3 +65,11 @@ Current dependencies:
 * Continue learning OpenCV image and video processing.
 * Explore hand tracking with MediaPipe.
 * Build and test each component independently before integrating them into the complete Touchless Spotify Controller.
+
+## Day 2 — Geometry and Spotify Setup
+
+* Implemented a distance function using NumPy to calculate the distance between two points.
+* Used `np.linalg.norm()` to calculate the length of the difference between the two points.
+* Created the AirBeats app in the Spotify Developer Dashboard and configured the redirect URI.
+* Installed Spotipy and python-dotenv to prepare for connecting Python to Spotify.
+* Added `.env` to `.gitignore` to keep Spotify credentials out of Git.

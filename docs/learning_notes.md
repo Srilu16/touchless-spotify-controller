@@ -87,3 +87,38 @@ Current dependencies:
 - `cv2.waitKey(1)` processes window events and checks for keyboard input.
 - Pressing `q` exits the loop.
 - `cap.release()` releases the webcam, and `cv2.destroyAllWindows()` closes OpenCV windows.
+
+## Day 4 — FPS Calculation and Frame Rate Optimization
+### Resolution Experiment
+
+| Requested Resolution | Actual Resolution | Typical FPS |
+|---|---|---|
+| 640x480 | 640x480 | Around 30 |
+| 1280x720 | 1280x720 | Around 30 |
+
+**Observation:** The webcam accepted both requested resolutions.
+FPS stayed around 30 in both tests. The camera may be limiting
+the frame rate, so a higher resolution did not noticeably increase
+FPS in these initial tests.
+### FPS Calculation
+
+- Raw FPS is calculated from the time between consecutive frames.
+- Smoothed FPS is the average of the most recent 10 raw FPS readings.
+- Raw FPS fluctuates from frame to frame, while smoothed FPS provides a more stable estimate.
+
+### Mirroring
+
+Used `cv2.flip(frame, 1)` to flip the webcam feed horizontally. This makes the preview behave more like a mirror and will help make gesture controls feel intuitive.
+
+### Distance and Lighting Experiment
+
+Tested the webcam at different distances and lighting conditions. FPS generally stayed around 29–30 at 1280 × 720, with occasional fluctuations.
+
+Since hand tracking is not implemented yet, these tests do not measure hand-detection accuracy. Lighting and distance will be important to test again when hand tracking is added.
+
+### Key Takeaways
+
+- The webcam accepted both 640 × 480 and 1280 × 720 resolutions.
+- Lower resolution does not automatically increase FPS when the camera is already operating near its frame-rate limit.
+- The actual resolution should be checked because cameras may not accept every requested resolution.
+- Mirroring changes the displayed image, so gesture directions must be interpreted consistently.

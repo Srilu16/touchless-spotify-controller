@@ -73,3 +73,17 @@ Current dependencies:
 * Created the AirBeats app in the Spotify Developer Dashboard and configured the redirect URI.
 * Installed Spotipy and python-dotenv to prepare for connecting Python to Spotify.
 * Added `.env` to `.gitignore` to keep Spotify credentials out of Git.
+
+
+## Day 3 — Understanding Frames and Live Webcam Feed
+
+- A webcam frame is stored as a NumPy array.
+- The frame shape is (height, width, channels).
+- OpenCV uses uint8 pixel values ranging from 0 to 255.
+- Each color pixel has three channels. OpenCV uses BGR order by default.
+- `cap.read()` returns a success flag and the captured frame.
+- `cv2.imshow()` displays the live frame.
+- A loop continuously captures and displays new frames.
+- `cv2.waitKey(1)` processes window events and checks for keyboard input.
+- Pressing `q` exits the loop.
+- `cap.release()` releases the webcam, and `cv2.destroyAllWindows()` closes OpenCV windows.
